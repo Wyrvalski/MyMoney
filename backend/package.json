@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server",
     "server": "nodemon server",
-    "test": "NODE_ENV= jest --detectOpenHandles"
+    "client": "npm start --prefix ../frontend",
+    "test": "NODE_ENV= jest --detectOpenHandles",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Eduardo Duarte",
   "license": "ISC",
