@@ -1,9 +1,16 @@
 import React from 'react';
+import Navbar from './components/navbar/Navbar';
+import Login from './components/login/Login';
+import Register from './components/register/Register';
 
 function App() {
   return (
-    <div className="App">
-      <h1>My App</h1>
+    <div className='App'>
+      <Navbar />
+      <div className='container'>
+        {/* <Login /> */}
+        <Register />
+      </div>
     </div>
   );
 }

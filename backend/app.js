@@ -9,6 +9,7 @@ connectDB();
 app.use(express.json());
 
 app.get('/', (req, res) => res.send('API Running'));
+app.use('/api/users', require('./routes/api/users'));
 
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static('../frontend/build'));
