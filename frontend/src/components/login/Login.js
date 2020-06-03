@@ -4,7 +4,7 @@ import './css/login.css';
 const Login = () => {
   return (
     <div className='card-login'>
-      <form>
+      <form className='form'>
         <h1 className='welcome-title'>My Money</h1>
         <div className='form-group'>
           <label>Email</label>
@@ -25,12 +25,14 @@ const Login = () => {
             id='password'
           />
         </div>
-        <span className='register-link'>
-          <a href='#'>Registar-se</a>
-        </span>
-        <button type='submit' className='btn btn-my-primary'>
-          Entrar
-        </button>
+        <div className='submit-form'>
+          <span className='register-link'>
+            <a href='#'>Registar-se</a>
+          </span>
+          <button type='submit' className='button-submit'>
+            Entrar
+          </button>
+        </div>  
       </form>
     </div>
   );

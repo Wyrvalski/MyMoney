@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Navbar from './components/navbar/Navbar';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
+import Footer from './components/footer/Footer';
+import './App.css';
 
 function App() {
   return (
-    <div className='App'>
+    <Fragment>
       <Navbar />
       <div className='container'>
-        {/* <Login /> */}
-        <Register />
+        <Login />
+        {/* <Register /> */}
       </div>
-    </div>
+      <Footer />
+    </Fragment>
   );
 }
 
