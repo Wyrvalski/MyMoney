@@ -1,14 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './css/footer.css'
 const Footer = () => {
     return (
         <footer className='footer-container'>
             <ul className='footer-itens'>
               <li className='footer-item'>
-                <a>Login</a>
+                <Link to='/login'>Login</Link>
               </li>
               <li className='footer-item'>
-                <a>Registrar</a>
+                <Link to='/register'>Registrar</Link>
               </li>
             </ul>
         </footer>

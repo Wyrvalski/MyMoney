@@ -1,4 +1,6 @@
 import React, { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom'
+
 import './css/navbar.css';
 
 const Navbar = () => {
@@ -13,7 +15,7 @@ const Navbar = () => {
   return (
     <Fragment>
       <div className={`header-container ${menuAtivo ? 'menu-ativo' : ''}`}>
-        <div onClick={ativarMenu} class='menu-abrir'>
+        <div onClick={ativarMenu} className='menu-abrir'>
           <span></span>
           <span></span>
           <span></span>
@@ -25,17 +27,17 @@ const Navbar = () => {
         </div>
         <nav>
           <div className='navbar'>
-            <div onClick={ativarMenu} class='menu-fechar'>
+            <div onClick={ativarMenu} className='menu-fechar'>
               <span></span>
               <span></span>
               <span></span>
             </div>
             <ul className='menu-principal'>
               <li className='menu-item'>
-                <a>Login</a>
+                <Link to='/login'>Login</Link>
               </li>
               <li className='menu-item'>
-                <a>Registrar</a>
+                <Link to='/resgister'>Registrar</Link>
               </li>
             </ul>
           </div>
