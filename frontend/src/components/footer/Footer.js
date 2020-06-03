@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className='footer-container'>
             <ul className='footer-itens'>
               <li className='footer-item'>
-                <Link to='/login'>Login</Link>
+                <Link to='/'>Login</Link>
               </li>
               <li className='footer-item'>
                 <Link to='/register'>Registrar</Link>

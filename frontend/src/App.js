@@ -4,6 +4,7 @@ import Login from './components/login/Login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Register from './components/register/Register';
 import Footer from './components/footer/Footer';
+import Dashboard from './components/dashboard/Dashboard'
 import store from './store';
 import './App.css';
 import { Provider } from 'react-redux';
@@ -17,7 +18,9 @@ function App() {
           <Fragment>
             <div className='container'>
               <Route path='/register' component={Register} />
-              <Route path='/login' component={Login} />
+              <Route exact path='/' component={Login} />
+              <Route path='/dashboard' component={Dashboard}/>
+              
             </div>
           </Fragment>
         </Switch>

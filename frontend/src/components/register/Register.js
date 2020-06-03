@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { register } from '../../actions/auth';
 import { setAlert } from '../../actions/alert';
+import Input from '../helpers/Input';
 import PropTypes from 'prop-types';
 
 import './css/register.css';
@@ -33,59 +34,41 @@ const Register = ({ register, setAlert, isAuthenticated }) => {
     return <Redirect to='/dashboard' />;
   }
 
-  console.log(isAuthenticated);
-  
-
   return (
     <div className='card-register'>
       <form action='/#' className='form' onSubmit={(e) => onSubmit(e)}>
         <h1 className='welcome-title'>My Money</h1>
-        <div className='form-group'>
-          <label>Nome</label>
-          <input
-            type='text'
-            className='form-control'
-            id='name'
-            name='name'
-            onChange={(e) => onChange(e)}
-          />
-        </div>
-        <div className='form-group'>
-          <label>Email</label>
-          <input
-            type='email'
-            className='form-control'
-            name='email'
-            id='email'
-            aria-describedby='emailHelp'
-            onChange={(e) => onChange(e)}
-          />
-        </div>
-        <div className='form-group'>
-          <label>Senha</label>
-          <input
-            type='password'
-            className='form-control'
-            id='password'
-            name='password'
-            value={password}
-            onChange={(e) => onChange(e)}
-          />
-        </div>
-        <div className='form-group'>
-          <label>Repetir Senha</label>
-          <input
-            type='password'
-            className='form-control'
-            id='password2'
-            name='password2'
-            value={password2}
-            onChange={(e) => onChange(e)}
-          />
-        </div>
+        <Input
+          typeInput='text'
+          labelInput='Nome'
+          nameInput='name'
+          valueInput={name}
+          onChangeInput={(e) => onChange(e)}
+        />
+        <Input
+          typeInput='email'
+          labelInput='Email'
+          nameInput='email'
+          valueInput={email}
+          onChangeInput={(e) => onChange(e)}
+        />
+        <Input
+          typeInput='password'
+          labelInput='Senha'
+          nameInput='password'
+          valueInput={password}
+          onChangeInput={(e) => onChange(e)}
+        />
+        <Input
+          typeInput='password'
+          labelInput='Repetir senha'
+          nameInput='password2'
+          valueInput={password2}
+          onChangeInput={(e) => onChange(e)}
+        />
         <div className='submit-form'>
           <span className='register-link'>
-            <Link to='/login'>Login</Link>
+            <Link to='/'>Login</Link>
           </span>
           <input type='submit' className='button-submit' value='Registrar-se' />
         </div>
@@ -101,7 +84,7 @@ const mapStateToProps = (state) => ({
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
 };
 
 export default connect(mapStateToProps, { setAlert, register })(Register);

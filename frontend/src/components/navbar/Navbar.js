@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import './css/navbar.css';
 
@@ -12,6 +12,12 @@ const Navbar = () => {
 
   const ativarMenu = () => setState({ menuAtivo: menuAtivo ? false : true });
 
+  document.documentElement.onclick = function (event) {
+    if (menuAtivo) {
+      ativarMenu();
+    }
+  };
+
   return (
     <Fragment>
       <div className={`header-container ${menuAtivo ? 'menu-ativo' : ''}`}>
@@ -21,9 +27,7 @@ const Navbar = () => {
           <span></span>
         </div>
         <div className='logo-container'>
-          <h1>
-            My Money
-          </h1>
+          <h1>My Money</h1>
         </div>
         <nav>
           <div className='navbar'>
@@ -34,10 +38,10 @@ const Navbar = () => {
             </div>
             <ul className='menu-principal'>
               <li className='menu-item'>
-                <Link to='/login'>Login</Link>
+                <Link to='/'>Login</Link>
               </li>
               <li className='menu-item'>
-                <Link to='/resgister'>Registrar</Link>
+                <Link to='/register'>Registrar</Link>
               </li>
             </ul>
           </div>

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { login } from '../../actions/auth';
 import PropTypes from 'prop-types';
+import Input from '../helpers/Input'
 
 import './css/login.css';
 
@@ -20,7 +21,7 @@ const Login = ({ login, isAuthenticated }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-    
+
     login(email, password);
   };
 
@@ -30,29 +31,23 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <div className='card-login'>
-      <form className='form'  onSubmit={(e) => onSubmit(e)}>
+      <form className='form' onSubmit={(e) => onSubmit(e)}>
         <h1 className='welcome-title'>My Money</h1>
-        <div className='form-group'>
-          <label>Email</label>
-          <input
-            type='email'
-            className='form-control'
-            name='email'
-            id='email'
-            aria-describedby='emailHelp'
-            onChange={(e) => onChange(e)}
-          />
-        </div>
-        <div className='form-group'>
-          <label>Senha</label>
-          <input
-            type='password'
-            className='form-control'
-            name='password'
-            id='password'
-            onChange={(e) => onChange(e)}
-          />
-        </div>
+        <Input
+          typeInput='email'
+          labelInput='Email'
+          nameInput='email'
+          valueInput={email}
+          onChangeInput={(e) => onChange(e)}
+        />
+
+        <Input
+          typeInput='password'
+          labelInput='Senha'
+          nameInput='password'
+          valueInput={password}
+          onChangeInput={(e) => onChange(e)}
+        />
         <div className='submit-form'>
           <span className='register-link'>
             <Link to='/register'>Registar-se</Link>
@@ -66,13 +61,13 @@ const Login = ({ login, isAuthenticated }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
 Login.propTypes = {
   login: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
 };
 
-export default connect(mapStateToProps,{ login })(Login);
+export default connect(mapStateToProps, { login })(Login);

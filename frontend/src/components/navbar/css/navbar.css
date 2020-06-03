@@ -78,7 +78,7 @@ a:hover {
         position: fixed;
         z-index : 1;
         top     : 0;
-        left    : -90%;
+        left    : -100%;
 
         transition: left 0.3s ease-out;
     }
